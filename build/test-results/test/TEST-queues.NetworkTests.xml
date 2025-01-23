@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="queues.NetworkTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-01-23T23:37:55" hostname="MIKAELSCRUCIBLE" time="0.025">
+  <properties/>
+  <testcase name="LIFO, Priority and FIFO queues combine OK" classname="queues.NetworkTests" time="0.024"/>
+  <testcase name="FIFO queue and sink combine OK" classname="queues.NetworkTests" time="0.0"/>
+  <testcase name="FIFO and LIFO queues combine OK" classname="queues.NetworkTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
