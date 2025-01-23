@@ -15,6 +15,7 @@ interface Queue<T> {
 
 class FifoQueue<T> : Queue<T> {
     private val elements = mutableListOf<T>()
+
     override fun enqueue(elem: T) {
         elements.add(elem)
     }
@@ -22,10 +23,11 @@ class FifoQueue<T> : Queue<T> {
     override fun peek(): T? = elements.firstOrNull()
 
     override fun dequeue(): T? {
-        if (elements.isNotEmpty())
+        if (elements.isNotEmpty()) {
             return elements.removeFirst()
-        else
+        } else {
             return null
+        }
     }
 
     override fun isEmpty(): Boolean = elements.isEmpty()
@@ -35,6 +37,7 @@ class FifoQueue<T> : Queue<T> {
 
 class LifoQueue<T> : Queue<T> {
     private val elements = mutableListOf<T>()
+
     override fun enqueue(elem: T) {
         elements.add(elem)
     }
@@ -42,10 +45,11 @@ class LifoQueue<T> : Queue<T> {
     override fun peek(): T? = elements.lastOrNull()
 
     override fun dequeue(): T? {
-        if (elements.isNotEmpty())
+        if (elements.isNotEmpty()) {
             return elements.removeLast()
-        else
+        } else {
             return null
+        }
     }
 
     override fun isEmpty(): Boolean = elements.isEmpty()
@@ -53,12 +57,15 @@ class LifoQueue<T> : Queue<T> {
     override fun size(): Int = elements.size
 }
 
-class PrQueue<T>(comparator: Comparator<T>? = null) : Queue<T> {
-    private val elements: PriorityQueue<T> = if (comparator != null) {
-        PriorityQueue(comparator)
-    } else {
-        PriorityQueue()
-    }
+class PrQueue<T>(
+    comparator: Comparator<T>? = null,
+) : Queue<T> {
+    private val elements: PriorityQueue<T> =
+        if (comparator != null) {
+            PriorityQueue(comparator)
+        } else {
+            PriorityQueue()
+        }
 
     override fun enqueue(elem: T) {
         elements.add(elem)

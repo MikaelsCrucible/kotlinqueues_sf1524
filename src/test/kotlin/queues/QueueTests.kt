@@ -3,7 +3,6 @@ package queues
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
-import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class FifoQueueTests {
@@ -56,7 +55,6 @@ class FifoQueueTests {
         fifoQueue.enqueue(5)
         assertFalse(fifoQueue.isEmpty())
     }
-
 }
 
 class LifoQueueTests {
@@ -109,7 +107,6 @@ class LifoQueueTests {
         lifoQueue.enqueue(99)
         assertFalse(lifoQueue.isEmpty())
     }
-
 }
 
 class PrQueueTests {
@@ -164,12 +161,14 @@ class PrQueueTests {
     }
 
     class PointComparator : Comparator<Point> {
-        override fun compare(p1: Point, p2: Point): Int {
-            return when {
+        override fun compare(
+            p1: Point,
+            p2: Point,
+        ): Int =
+            when {
                 p1.coordX != p2.coordX -> p1.coordX - p2.coordX
                 else -> p1.coordY - p2.coordY
             }
-        }
     }
 
     @Test
@@ -198,5 +197,7 @@ class PrQueueTests {
     }
 }
 
-data class Point(val coordX: Int, val coordY: Int)
-
+data class Point(
+    val coordX: Int,
+    val coordY: Int,
+)

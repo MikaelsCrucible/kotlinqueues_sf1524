@@ -64,6 +64,4 @@ class NetworkTests {
 
         assertEquals(listOf(3, 1, 0, 2), sink.getAccepted())
     }
-
-    // TODO: add additional tests to check that queue networks are working.
 }

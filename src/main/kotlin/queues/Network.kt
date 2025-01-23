@@ -8,17 +8,14 @@ interface Forwarder<T> {
     fun forward()
 }
 
-
 class QueueNode<T>(
-    private val queue: Queue<T>,  // 节点的队列
-    private val successor: Acceptor<T> // 后继节点
-) : Acceptor<T>, Forwarder<T> {
-
-
+    private val queue: Queue<T>, // 节点的队列
+    private val successor: Acceptor<T>, // 后继节点
+) : Acceptor<T>,
+    Forwarder<T> {
     override fun accept(item: T) {
         queue.enqueue(item)
     }
-
 
     override fun forward() {
         val item = queue.dequeue()
@@ -27,7 +24,6 @@ class QueueNode<T>(
         }
     }
 }
-
 
 class Sink<T> : Acceptor<T> {
     private val acceptedItems = mutableListOf<T>()
